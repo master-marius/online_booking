@@ -11,7 +11,8 @@
     var model = this;
 
     model = {
-      me: me
+      me: me,
+      update: update
     };
 
     return model;
@@ -20,6 +21,19 @@
     
       return MemberResource
         .me()
+        .$promise
+        .then(
+          function(res){
+            return res;
+          },function(err){
+            return err;
+          });
+    }
+
+    function update(obj){
+    
+      return MemberResource
+        .update(obj)
         .$promise
         .then(
           function(res){

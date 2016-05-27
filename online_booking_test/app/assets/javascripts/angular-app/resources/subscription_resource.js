@@ -1,5 +1,5 @@
 
-  app.factory('MemberResource', Factory);
+  app.factory('SubscriptionResource', Factory);
 
   Factory.$inject = [
     '$resource'
@@ -9,17 +9,13 @@
     $resource
   ) {
 
-    var url = '/api/v1/members';
+    var url = '/api/v1/subscriptions';
     
     return $resource(url + '/:id', {
       id: '@id',
     }, {
-      me: {
-        method: 'GET',
-        url: url+'/me'
-      },
-      update: {
-        method: 'PUT'
+      getAll: {
+        method: 'GET'
       }
     });
 

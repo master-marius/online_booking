@@ -19,7 +19,9 @@
       MemberModel
       .me()
       .then(function(res) {
+        console.log(res);
         if(res.member){
+          $scope.current_member = res.member;
           if (res.member.has_completed_first_login){
 
           }else{
@@ -41,7 +43,8 @@
         resolve: {
           data: function () {
             return { type: 'subscribe',
-                     title: 'Subscribe to lessons'
+                     title: 'Subscribe to lessons',
+                     me: $scope.current_member
                    };
           }
         }
