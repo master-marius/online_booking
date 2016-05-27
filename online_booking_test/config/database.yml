@@ -1,0 +1,8 @@
+development:
+  adapter: mysql2
+  database: esl
+  host: localhost
+  user: root
+  password: root
+  pool: 5
+  timeout: 5000
