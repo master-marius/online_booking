@@ -10,14 +10,20 @@
     $scope,
     MemberModel
   ) {
-    
+
     me();
 
     function me(){
       MemberModel
       .me()
       .then(function(res) {
-        console.log(res);
+        if(res.member){
+          if (res.member.has_completed_first_login){
+
+          }else{
+            alert('Please choose subscription');
+          }
+        }
       }, function(err){
         console.log('failed',res);
       });
