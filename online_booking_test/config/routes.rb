@@ -13,6 +13,8 @@ Rails.application.routes.draw do
           get 'me'
         end
       end
+
+      resources :subscriptions
     end
   end
 end
