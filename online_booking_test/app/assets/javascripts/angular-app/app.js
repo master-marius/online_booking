@@ -1,6 +1,6 @@
 var app = angular.module
           ('LessonBookingApp',
-            ['ngResource', 'ui.router', 'ngAnimate', 'ngSanitize']
+            ['ngResource', 'ui.router', 'ngAnimate', 'ngSanitize', 'ui.bootstrap']
           );
 
 app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
