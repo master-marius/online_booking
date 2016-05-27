@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+OneLesson = Subscription.create({ name: ' 1 lesson / day', lesson_count: 1})
+TwoneLessons = Subscription.create({ name: ' 2 lessons / day', lesson_count: 2})
+ThreeLessons = Subscription.create({ name: ' 3 lessons / day', lesson_count: 3})
