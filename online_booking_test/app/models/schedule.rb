@@ -2,7 +2,6 @@ class Schedule < ActiveRecord::Base
   has_many :teachers
 
   def self.generate_time(teacher_id, date)
-    date = Time.new.to_date.strftime('%Y-%m-%d')
 
     sec_interval = 60 * 30  # 60 sec * 30 min
     total_sched_time = 48

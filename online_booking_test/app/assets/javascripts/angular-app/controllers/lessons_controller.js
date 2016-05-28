@@ -24,10 +24,11 @@
     function init(){
       renderLessons();
       renderTeachers();
-      
+      renderBookings();
     }
 
-    $scope.checkSched = function(){
+    $scope.checkSched = function(opt){
+      $scope.schedules = null;
       var params = {
         teacher_id: $scope.teacher.id,
         date: $scope.date
@@ -38,6 +39,11 @@
       .then(function(res) {
         if (res.schedules){
           $scope.schedules = res.schedules;
+          $scope.schedule = null;
+
+          if (opt){
+            renderBookings();
+          }
         }
       }, function(err){
         console.log('failed',res);
@@ -62,6 +68,16 @@
 
     $scope.selectTime = function(schedule){
       $scope.schedule = schedule;
+    }
+
+    function renderBookings(){
+      BookingModel
+      .getAll({ date: $scope.date})
+      .then(function(res) {
+        console.log(res);
+      }, function(err){
+        console.log('failed',res);
+      });
     }
 
     function renderLessons(){

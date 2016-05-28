@@ -21,11 +21,9 @@
       MemberModel
       .me()
       .then(function(res) {
-        console.log(res);
         if(res.member){
           $scope.current_member = res.member;
           if (res.member.has_completed_first_login){
-            console.log('going to lessons');
             $state.go('home.lessons');
           }else{
             showSubscriptions();

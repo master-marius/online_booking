@@ -5,9 +5,13 @@ class Api::V1::BookingsController < Api::V1::BaseController
   before_action :check_member_subscription, only: [:create]
 
   def index
-    subs = Subscription.all
+    date = params[:date]
 
-    render json: subs
+    bookings = Booking.joins(:schedule)
+                      .where("schedules.date = '#{date}'")
+                      .where("bookings.member_id = #{current_member.id}")
+
+    render json:{bookings: ActiveModel::ArraySerializer.new(bookings, each_serializer: BookingSerializer)} 
   end
 
   def create

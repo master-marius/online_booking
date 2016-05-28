@@ -17,10 +17,10 @@
 
     return model;
 
-    function getAll(){
+    function getAll(obj){
     
       return BookingResource
-        .getAll()
+        .getAll(obj)
         .$promise
         .then(
           function(res){
