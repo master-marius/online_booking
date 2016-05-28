@@ -1,5 +1,5 @@
 class Schedule < ActiveRecord::Base
-  has_many :teachers
+  belongs_to :teacher
 
   def self.generate_time(teacher_id, date)
 
