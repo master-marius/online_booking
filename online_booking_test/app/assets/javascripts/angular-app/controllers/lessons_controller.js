@@ -17,8 +17,6 @@
     ScheduleModel
   ) {
 
-    $scope.date = '2016-05-28';
-
     $scope.today = function() {
       $scope.date = new Date();
     };
@@ -36,9 +34,10 @@
 
     $scope.checkSched = function(opt){
       $scope.schedules = null;
+      var date = getDateOnly();
       var params = {
         teacher_id: $scope.teacher.id,
-        date: $scope.date
+        date: date
       };
 
       ScheduleModel
@@ -51,6 +50,8 @@
           if (opt){
             renderBookings();
           }
+        }else{
+          console.log(res);
         }
       }, function(err){
         console.log('failed',res);
@@ -66,8 +67,11 @@
         BookingModel
         .create({booking: $scope.booking})
         .then(function(res) {
+          console.log(res);
           if (res.booking){
             renderBookings();
+          }else{
+            alert(res.data.errors[0]);
           }
         }, function(err){
           console.log('failed',res);
@@ -115,9 +119,31 @@
       });
     }
 
+
+    function getDateOnly(){
+      var date = angular.copy($scope.date);
+      date = new Date(date);
+      
+      var yy = date.getFullYear();
+      var mm = parseInt(date.getMonth()) + 1;
+      var dd = parseInt(date.getDate());
+
+      if (mm < 10){
+        mm = '0'+mm;
+      }
+
+      if (dd < 10){
+        dd = '0'+dd;
+      }
+
+      return yy+'-'+mm+'-'+dd;
+    }
+
     function renderBookings(){
+      var date = getDateOnly();
+      
       BookingModel
-      .getAll({ date: $scope.date})
+      .getAll({ date: date})
       .then(function(res) {
         if (res.bookings) {
           $scope.bookings = res.bookings;

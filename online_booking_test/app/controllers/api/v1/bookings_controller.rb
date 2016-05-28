@@ -7,7 +7,7 @@ class Api::V1::BookingsController < Api::V1::BaseController
   def index
     date = params[:date]
     date = date.to_date.strftime('%Y-%m-%d')
-
+    
     bookings = Booking.joins(:schedule)
                       .where("schedules.date = '#{date}'")
                       .where("bookings.member_id = #{current_member.id}")
