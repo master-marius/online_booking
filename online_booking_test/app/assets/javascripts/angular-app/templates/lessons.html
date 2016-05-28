@@ -20,16 +20,16 @@
       </select>
     </div>
     <div class="col-md-3">
-      <button class="btn btn-default">Book</button>
+      <button class="btn btn-default" ng-click="checkBooking()">Book</button>
     </div>
   </div>
 
 </div>
 <div>
-  <h4>Time</h4>
+  <h4>Time - {{schedule.time}}</h4>
   <div class="row">
     <span class="" ng-repeat="schedule in schedules">
-      <button class="btn btn-default" >{{schedule.time}}</button>
+      <button class="btn btn-default" ng-click="selectTime(schedule)">{{schedule.time}}</button>
     </span>
     
   </div>

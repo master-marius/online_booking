@@ -5,6 +5,7 @@
     '$scope',
     'LessonModel',
     'TeacherModel',
+    'BookingModel',
     'ScheduleModel'
   ];
 
@@ -12,10 +13,12 @@
     $scope,
     LessonModel,
     TeacherModel,
+    BookingModel,
     ScheduleModel
   ) {
 
     $scope.date = '2016-05-28';
+    $scope.schedule = null;
     init();
 
     function init(){
@@ -39,6 +42,26 @@
       }, function(err){
         console.log('failed',res);
       });
+    }
+
+    $scope.checkBooking = function(){
+      if ($scope.schedule) {
+        $scope.booking = {
+          lesson_id: $scope.lesson.id,
+          schedule_id: $scope.schedule.id
+        }
+        BookingModel
+        .create({booking: $scope.booking})
+        .then(function(res) {
+          console.log(res);
+        }, function(err){
+          console.log('failed',res);
+        });
+      }
+    }
+
+    $scope.selectTime = function(schedule){
+      $scope.schedule = schedule;
     }
 
     function renderLessons(){

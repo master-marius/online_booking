@@ -18,6 +18,7 @@ Rails.application.routes.draw do
       resources :teachers
       resources :lessons
       resources :schedules
+      resources :bookings
     end
   end
 end
