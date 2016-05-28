@@ -7,16 +7,16 @@
     </div>
     <div class="col-md-3">
       <select ng-change="checkSched()" class="form-control"
-            ng-model="lesson"
-            ng-options="lesson as lesson.name 
-                for lesson in lessons track by lesson.id">
+            ng-model="teacher"
+            ng-options="teacher as teacher.name 
+                for teacher in teachers track by teacher.id">
       </select>
     </div>
     <div class="col-md-3">
       <select ng-change="checkSched()" class="form-control"
-            ng-model="teacher"
-            ng-options="teacher as teacher.name 
-                for teacher in teachers track by teacher.id">
+            ng-model="lesson"
+            ng-options="lesson as lesson.name 
+                for lesson in lessons track by lesson.id">
       </select>
     </div>
     <div class="col-md-3">
@@ -28,9 +28,9 @@
 <div>
   <h4>Time</h4>
   <div class="row">
-    <div class="col-md-1" ng-repeat="schedule in schedules">
+    <span class="" ng-repeat="schedule in schedules">
       <button class="btn btn-default" >{{schedule.time}}</button>
-    </div>
+    </span>
     
   </div>
 <!--   <h3>Booked lessons</h3>
