@@ -12,7 +12,8 @@
 
     model = {
       getAll: getAll,
-      create: create
+      create: create,
+      destroy: destroy
     };
 
     return model;
@@ -34,6 +35,19 @@
     
       return BookingResource
         .create(obj)
+        .$promise
+        .then(
+          function(res){
+            return res;
+          },function(err){
+            return err;
+          });
+    }
+
+    function destroy(obj){
+    
+      return BookingResource
+        .destroy(obj)
         .$promise
         .then(
           function(res){

@@ -9,7 +9,6 @@
           <button type="button" class="btn btn-default" ng-click="openCalendar()"><i class="glyphicon glyphicon-calendar"></i></button>
         </span>
       </p>
-      <!-- <input class="form-control" ng-model="date" > -->
     </div>
     <div class="col-md-3">
       <select ng-change="checkSched(false)" class="form-control"
@@ -50,6 +49,7 @@
           <th>Lessons</th>
           <th>Teachers</th>
           <th>Schedules</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -57,9 +57,10 @@
           <td>{{booking.lesson.name}}</td>
           <td>{{booking.schedule.teacher.name}}</td>
           <td>{{booking.schedule.date}} {{booking.schedule.time}}</td>
+          <td><button class="btn btn-default btn-sm" ng-click="cancelBooking(booking)">Cancel</button></td>
         </tr>
         <tr ng-if="bookings.length < 1">
-          <td colspan="3">No bookings.</td>
+          <td colspan="4">No bookings.</td>
         </tr>
       </tbody>
     </table>

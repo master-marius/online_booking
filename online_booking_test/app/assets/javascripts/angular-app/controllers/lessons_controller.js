@@ -103,17 +103,19 @@
       $scope.schedule = schedule;
     }
 
+    $scope.cancelBooking = function(booking){
+      BookingModel
+      .destroy({id:booking.id})
+      .then(function(res) {
+        if (res.booking) {
+          renderBookings();
+        }
+      }, function(err){
+        console.log('failed',res);
+      });
+    }
+
     function renderBookings(){
-      // var date = new Date($scope.date);
-
-      // var yy = date.getFullYear();
-      // var mm = date.getMonth();
-      
-      // $scope.date = Date.new($scope.date);
-      // $scope.date = $scope.date.toLocaleFormat('%d-%b-%Y');
-
-      console.log($scope.date);
-
       BookingModel
       .getAll({ date: $scope.date})
       .then(function(res) {

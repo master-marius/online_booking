@@ -19,6 +19,9 @@
       },
       create: {
         method: 'POST'
+      },
+      destroy: {
+        method: 'DELETE'
       }
     });
 
