@@ -12,20 +12,20 @@ class Api::V1::BookingsController < Api::V1::BaseController
 
   def create
     params[:booking][:member_id] = current_member.id
-    booking = Booking.create(booking_params)
 
-    render json: booking
+    booking = Booking.create(booking_params)
+    
+    if booking.valid?
+      render json: booking
+    else
+      render json: { errors: booking.errors.full_messages}, status: :forbidden
+    end
+
   end
 
   private
 
   def check_member_subscription
-    
-    booking = Booking.where(schedule_id: booking_params[:schedule_id], member_id: current_member.id).limit(1)
-
-    if booking
-      raise Exceptions::BookingError
-    end
 
     schedule = Schedule.find(booking_params[:schedule_id])
     date = schedule.date
@@ -47,6 +47,6 @@ class Api::V1::BookingsController < Api::V1::BaseController
   end
 
   def booking_error
-    render json: { errors: 'Subscription limit per day reached!' }, :status => :forbidden
+    render json: { errors: ['Subscription limit per day reached!'] }, :status => :forbidden
   end
 end
