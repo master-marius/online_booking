@@ -3,7 +3,10 @@ class Api::V1::SchedulesController < Api::V1::BaseController
   def index
     schedules = Schedule.where(teacher_id: params[:teacher_id],
                                date: params[:date])
-    # schedules = Schedule.all.limit(10)
+    
+    if schedules.empty?
+      schedules = Schedule.generate_time(params[:teacher_id], params[:date])
+    end
     render json: schedules
   end
 
