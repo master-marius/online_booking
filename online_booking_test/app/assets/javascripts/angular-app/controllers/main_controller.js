@@ -4,13 +4,15 @@
   Controller.$inject = [
     '$scope',
     'MemberModel',
-    '$uibModal'
+    '$uibModal',
+    '$state'
   ];
 
   function Controller(
     $scope,
     MemberModel,
-    $uibModal
+    $uibModal,
+    $state
   ) {
 
     me();
@@ -23,7 +25,8 @@
         if(res.member){
           $scope.current_member = res.member;
           if (res.member.has_completed_first_login){
-
+            console.log('going to lessons');
+            $state.go('home.lessons');
           }else{
             showSubscriptions();
           }

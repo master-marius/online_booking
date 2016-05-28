@@ -6,12 +6,17 @@ var app = angular.module
 app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
   // $locationProvider.html5Mode(true);
   var url = '/assets/angular-app/templates/';
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/dashboard');
   $stateProvider
     .state('home', {
-        url: '/',
+        url: '/dashboard',
         templateUrl: url+'home.html',
         controller: 'MainController'
+    })
+    .state('home.lessons', {
+        url: '/lessons',
+        templateUrl: url+'lessons.html',
+        controller: 'LessonsController'
     });
 
     

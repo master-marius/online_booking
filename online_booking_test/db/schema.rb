@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160528070122) do
+ActiveRecord::Schema.define(version: 20160528083431) do
+
+  create_table "bookings", force: :cascade do |t|
+    t.integer "schedule_id", limit: 4
+    t.integer "member_id",   limit: 4
+    t.integer "lesson_id",   limit: 4
+  end
 
   create_table "lessons", force: :cascade do |t|
-    t.integer "name", limit: 4
+    t.string "name", limit: 255
   end
 
   create_table "members", force: :cascade do |t|

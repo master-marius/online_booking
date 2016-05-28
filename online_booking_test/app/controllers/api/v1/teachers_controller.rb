@@ -1,6 +1,12 @@
 class Api::V1::TeachersController < Api::V1::BaseController
 
   def index
+   teachers = Teacher.all
+
+   render json: teachers
+  end
+
+  def search
     limit = 2
     page = params[:page]
 

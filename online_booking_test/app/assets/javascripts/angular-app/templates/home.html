@@ -1,7 +1,9 @@
 <div class="container-fluid">
+
   <div class="row">
-    <div class="col-xs-6 col-md-4 well">
-      <ul>
+    <div class="col-xs-6 col-md-4 ">
+      <h3>Member Info</h3>
+      <ul class="well">
         <li class="">
           {{current_member.email}}
         </li>
@@ -11,18 +13,7 @@
       </ul>
     </div>
     <div class="col-xs-12 col-md-8">
-      <div class="row">
-        <h2>BOOK LESSON(S)</h2>
-        <input value="DATE" ng-model="book.date" />
-        <select>
-          <option>Select Teacher</option>
-        </select>
-        <input value="English" />
-      </div>
-
-      <div class="row">
-
-      </div>
+      <div ui-view></div>
     </div>
   </div>
 </div>

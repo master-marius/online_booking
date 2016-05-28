@@ -1,0 +1,50 @@
+
+<div class="">
+  <h3>Book lessons</h3>
+  <div class="row">
+    <div class="col-md-3">
+      <input class="form-control" ng-model="date">
+    </div>
+    <div class="col-md-3">
+      <select class="form-control"
+            ng-model="lesson"
+            ng-options="lesson as lesson.name 
+                for lesson in lessons track by sub.id">
+      </select>
+    </div>
+    <div class="col-md-3">
+      <select class="form-control"
+            ng-model="teacher"
+            ng-options="techer as teacher.name 
+                for teacher in teachers track by sub.id">
+      </select>
+    </div>
+    <div class="col-md-3">
+      <button class="btn btn-default">Book</button>
+    </div>
+  </div>
+
+</div>
+<div>
+  <h4>Time</h4>
+<!--   <h3>Booked lessons</h3>
+  <div class="">
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Lessons</th>
+          <th>Teachers</th>
+          <th>Schedules</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>English</td>
+          <td>Marco </td>
+          <td>2016-05-28 03:00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->
+</div>

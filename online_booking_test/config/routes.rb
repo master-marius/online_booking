@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
       resources :subscriptions
       resources :teachers
+      resources :lessons
+      resources :schedules
     end
   end
 end

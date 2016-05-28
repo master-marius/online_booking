@@ -67,7 +67,8 @@ lessons = [
   { name: 'MATRIX ALGEBRA 101'}
 ]
 
-lessons.each do | lesson|
+
+lessons.each do |lesson|
   Lesson.create(lesson)
 end
 

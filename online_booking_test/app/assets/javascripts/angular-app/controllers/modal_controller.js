@@ -6,7 +6,8 @@ app.controller('ModalController', Controller);
     '$uibModalInstance',
     'data',
     'SubscriptionModel',
-    'MemberModel'
+    'MemberModel',
+    '$state'
   ];
 
   function Controller(
@@ -14,7 +15,8 @@ app.controller('ModalController', Controller);
     $uibModalInstance,
     data,
     SubscriptionModel,
-    MemberModel
+    MemberModel,
+    $state
   ) {
     
     $scope.sub = null;
@@ -49,6 +51,7 @@ app.controller('ModalController', Controller);
           if (res.member){
             if (res.member.has_completed_first_login){
               closeModal();
+              $state.go('home.lessons');
             }
           }
         });
