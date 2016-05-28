@@ -33,9 +33,11 @@
     </span>
     
   </div>
-<!--   <h3>Booked lessons</h3>
+</div>
+
+<div>
+  <h3>Booked lessons</h3>
   <div class="">
-    
     <table class="table">
       <thead>
         <tr>
@@ -45,12 +47,15 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>English</td>
-          <td>Marco </td>
-          <td>2016-05-28 03:00</td>
+        <tr ng-repeat="booking in bookings">
+          <td>{{booking.lesson.name}}</td>
+          <td>{{booking.schedule.teacher_id}}</td>
+          <td>{{booking.schedule.date}} {{booking.schedule.time}}</td>
+        </tr>
+        <tr ng-if="bookings.length < 1">
+          <td colspan="3">No bookings.</td>
         </tr>
       </tbody>
     </table>
-  </div> -->
+  </div>
 </div>

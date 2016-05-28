@@ -59,7 +59,9 @@
         BookingModel
         .create({booking: $scope.booking})
         .then(function(res) {
-          console.log(res);
+          if (res.booking){
+            renderBookings();
+          }
         }, function(err){
           console.log('failed',res);
         });
@@ -74,7 +76,9 @@
       BookingModel
       .getAll({ date: $scope.date})
       .then(function(res) {
-        console.log(res);
+        if (res.bookings) {
+          $scope.bookings = res.bookings;
+        }
       }, function(err){
         console.log('failed',res);
       });
