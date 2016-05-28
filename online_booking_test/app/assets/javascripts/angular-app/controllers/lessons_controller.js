@@ -18,6 +18,13 @@
   ) {
 
     $scope.date = '2016-05-28';
+
+    $scope.today = function() {
+      $scope.date = new Date();
+    };
+
+    $scope.today();
+
     $scope.schedule = null;
     init();
 
@@ -68,11 +75,45 @@
       }
     }
 
+    $scope.openCalendar = function() {
+      $scope.popup1.opened = true;
+    };
+
+    $scope.popup1 = {
+      opened: false
+    };
+
+    $scope.formats = ['dd-MMMM-yyyy', 'yyyy-MM-dd', 'dd.MM.yyyy', 'shortDate'];
+    $scope.format = $scope.formats[1];
+
+    $scope.dateOptions = {
+      formatYear: 'yy',
+      maxDate: new Date(2020, 5, 22),
+      minDate: new Date(),
+      startingDay: 1
+    };
+
+    function disabled(data) {
+      var date = data.date,
+        mode = data.mode;
+      return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
+    }
+
     $scope.selectTime = function(schedule){
       $scope.schedule = schedule;
     }
 
     function renderBookings(){
+      // var date = new Date($scope.date);
+
+      // var yy = date.getFullYear();
+      // var mm = date.getMonth();
+      
+      // $scope.date = Date.new($scope.date);
+      // $scope.date = $scope.date.toLocaleFormat('%d-%b-%Y');
+
+      console.log($scope.date);
+
       BookingModel
       .getAll({ date: $scope.date})
       .then(function(res) {
