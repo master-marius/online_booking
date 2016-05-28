@@ -1,9 +1,9 @@
 class Api::V1::SchedulesController < Api::V1::BaseController
 
   def index
-  #   schedules = Schedule.where(teacher_id: schedule_params[:teacher_id],
-  #                              date: schedule_params[:date])
-    schedules=Schedule.all.limit(10)
+    schedules = Schedule.where(teacher_id: params[:teacher_id],
+                               date: params[:date])
+    # schedules = Schedule.all.limit(10)
     render json: schedules
   end
 

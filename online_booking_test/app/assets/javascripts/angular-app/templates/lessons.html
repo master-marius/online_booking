@@ -3,20 +3,20 @@
   <h3>Book lessons</h3>
   <div class="row">
     <div class="col-md-3">
-      <input class="form-control" ng-model="date">
+      <input class="form-control" ng-model="date" ng-change="checkSched()">
     </div>
     <div class="col-md-3">
-      <select class="form-control"
+      <select ng-change="checkSched()" class="form-control"
             ng-model="lesson"
             ng-options="lesson as lesson.name 
-                for lesson in lessons track by sub.id">
+                for lesson in lessons track by lesson.id">
       </select>
     </div>
     <div class="col-md-3">
-      <select class="form-control"
+      <select ng-change="checkSched()" class="form-control"
             ng-model="teacher"
-            ng-options="techer as teacher.name 
-                for teacher in teachers track by sub.id">
+            ng-options="teacher as teacher.name 
+                for teacher in teachers track by teacher.id">
       </select>
     </div>
     <div class="col-md-3">
@@ -27,6 +27,12 @@
 </div>
 <div>
   <h4>Time</h4>
+  <div class="row">
+    <div class="col-md-1" ng-repeat="schedule in schedules">
+      <button class="btn btn-default" >{{schedule.time}}</button>
+    </div>
+    
+  </div>
 <!--   <h3>Booked lessons</h3>
   <div class="">
     
