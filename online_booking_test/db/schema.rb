@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527151116) do
+ActiveRecord::Schema.define(version: 20160528070122) do
+
+  create_table "lessons", force: :cascade do |t|
+    t.integer "name", limit: 4
+  end
 
   create_table "members", force: :cascade do |t|
     t.string   "email",                     limit: 255, default: "",    null: false
@@ -33,11 +37,25 @@ ActiveRecord::Schema.define(version: 20160527151116) do
   add_index "members", ["email"], name: "index_members_on_email", unique: true, using: :btree
   add_index "members", ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true, using: :btree
 
+  create_table "schedules", force: :cascade do |t|
+    t.integer "teacher_id", limit: 4
+    t.date    "date"
+    t.time    "time"
+  end
+
   create_table "subscriptions", force: :cascade do |t|
     t.string   "name",         limit: 255, default: "", null: false
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
     t.integer  "lesson_count", limit: 4,   default: 1
+  end
+
+  create_table "teachers", force: :cascade do |t|
+    t.string   "name",        limit: 255, default: "", null: false
+    t.string   "gender",      limit: 255, default: "", null: false
+    t.string   "nationality", limit: 255, default: "", null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
   end
 
 end

@@ -9,7 +9,7 @@ class Api::V1::MembersController < Api::V1::BaseController
   def update
     member = Member.find(params[:id])
 
-    if member.update(member_params)
+    if member.update(member_params) 
       render json: member
     else
       render json: { errors: member.errors }, status: 422

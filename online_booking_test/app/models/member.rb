@@ -4,5 +4,5 @@ class Member < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  belongs_to :subscriber
+  belongs_to :subscription
 end
