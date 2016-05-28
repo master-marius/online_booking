@@ -15,7 +15,11 @@ Rails.application.routes.draw do
       end
 
       resources :subscriptions
-      resources :teachers
+      resources :teachers do
+        collection do
+          get 'search'
+        end
+      end
       resources :lessons
       resources :schedules
       resources :bookings

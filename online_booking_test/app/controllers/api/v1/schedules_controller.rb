@@ -1,6 +1,8 @@
 class Api::V1::SchedulesController < Api::V1::BaseController
 
   def index
+    params[:date] = Time.new.to_date.strftime('%Y-%m-%d') if params[:date].nil?
+
     schedules = Schedule.where(teacher_id: params[:teacher_id],
                                date: params[:date])
     

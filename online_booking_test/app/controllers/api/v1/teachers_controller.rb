@@ -8,7 +8,7 @@ class Api::V1::TeachersController < Api::V1::BaseController
 
   def search
     limit = 2
-    page = params[:page]
+    page = params[:page].to_i
 
     page = 1 if page == nil
 
@@ -28,10 +28,11 @@ class Api::V1::TeachersController < Api::V1::BaseController
 
     meta = { page: page, total: count, per_page: limit, pages: pages }
 
-    render json: {
-      teachers: ActiveModel::ArraySerializer.new(teachers, each_serializer: TeacherSerializer),
-      meta: meta
-    }
+    # render json: {
+    #   teachers: ActiveModel::ArraySerializer.new(teachers, each_serializer: TeacherSerializer),
+    #   meta: meta
+    # }
+    render json: { teachers: teachers, meta: meta}
   end
 
   private

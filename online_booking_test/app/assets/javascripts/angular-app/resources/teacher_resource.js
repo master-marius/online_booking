@@ -16,6 +16,10 @@
     }, {
       getAll: {
         method: 'GET'
+      },
+      search_all: {
+        method: 'GET',
+        url: url+'/search'
       }
     });
 
