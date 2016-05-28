@@ -17,6 +17,11 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         url: '/lessons',
         templateUrl: url+'lessons.html',
         controller: 'LessonsController'
+    })
+    .state('teachers', {
+        url: '/teachers',
+        templateUrl: url+'teachers.html',
+        controller: 'TeachersController'
     });
 
     
