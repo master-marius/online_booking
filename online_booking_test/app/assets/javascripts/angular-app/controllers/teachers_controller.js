@@ -2,16 +2,17 @@
 app.controller('TeachersController', Controller);
 
   Controller.$inject = [
-    '$scope', 'TeacherModel', 'ScheduleModel'
+    '$scope', 'TeacherModel', 'ScheduleModel', 'MemberModel', '$state'
   ];
 
   function Controller(
-    $scope, TeacherModel, ScheduleModel
+    $scope, TeacherModel, ScheduleModel, MemberModel, $state
   ) {
     $scope.page = 1;
     $scope.teachers = null;
     $scope.keyword = null;
     search();
+  
 
     function search(){
       TeacherModel

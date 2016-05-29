@@ -1,0 +1,13 @@
+one: {
+  id: 1,
+  teacher_id: 1,
+  date: '2016-05-30',
+  time: '00:00'
+}
+
+two: {
+  id: 2,
+  teacher_id: 1,
+  date: '2016-05-30',
+  time: '00:30'
+}
